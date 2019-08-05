@@ -54,7 +54,7 @@ class ProjectController extends Controller
 	 */
 	public function show(Project $project)
 	{
-		return view('edit', compact('project'));
+		
 	}
 
 	/**
@@ -64,7 +64,9 @@ class ProjectController extends Controller
 	 * @return \Illuminate\Http\Response
 	 */
 	public function edit(Project $project)
-	{ }
+	{
+		return view('edit', compact('project'));
+	}
 
 	/**
 	 * Update the specified resource in storage.

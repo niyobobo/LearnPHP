@@ -16,7 +16,7 @@
   GET /projects           (index)
   GET /projects/create    (create) //For form handling
   GET /projects/1         (show)
-  POST /project           (store)
+  POST /project           (store)  // For saving data from the form
   GET /projects/1/edit    (edit)
   PATCH /projects/1       (update)
   DELETE /projects/1      (destroy)
