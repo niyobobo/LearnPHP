@@ -17,7 +17,7 @@ class ProjectController extends Controller
 		$projects = Project::all();
 		return view('welcome')->with([
 			'foo' => 'Foobar',
-			'tasks' => $projects,
+			'projects' => $projects,
 		]);
 	}
 
