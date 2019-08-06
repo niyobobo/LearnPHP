@@ -3,7 +3,9 @@
 <h1>Here we are</h1>
 <ul>
 	@foreach($tasks as $task)
-	<li>{{$task}} {{$foo}}</li>
+	<a href="/projects/{{$task->id}}">
+		<li>{{$task->description}} {{$foo}}</li>
+	</a>
 	@endforeach
 </ul>
 @endsection

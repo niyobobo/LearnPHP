@@ -39,11 +39,8 @@ class ProjectController extends Controller
 	 */
 	public function store(Request $request)
 	{
-		$project = new Project();
-		$project->title = $request->title;
-		$project->description = $request->description;
-		$project->save();
-		return redirect('/');
+		Project::create(request(['title',	'description']));
+		return redirect('projects');
 	}
 
 	/**
@@ -54,7 +51,7 @@ class ProjectController extends Controller
 	 */
 	public function show(Project $project)
 	{
-		
+		return view('show', compact('project'));
 	}
 
 	/**
@@ -77,10 +74,8 @@ class ProjectController extends Controller
 	 */
 	public function update(Request $request, Project $project)
 	{
-		$project->title = $request->title;
-		$project->description = $request->description;
-		$project->save();
-		return redirect('/projects');
+		$project->update(request(['title', 'description']));
+		return redirect('projects');
 	}
 
 	/**
@@ -90,8 +85,8 @@ class ProjectController extends Controller
 	 * @return \Illuminate\Http\Response
 	 */
 	public function destroy(Project $project)
-	{ 
+	{
 		Project::findOrFail($project->id)->delete();
-		return redirect('/projects');
+		return redirect('projects');
 	}
 }
