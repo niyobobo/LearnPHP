@@ -90,5 +90,8 @@ class ProjectController extends Controller
 	 * @return \Illuminate\Http\Response
 	 */
 	public function destroy(Project $project)
-	{ }
+	{ 
+		Project::findOrFail($project->id)->delete();
+		return redirect('/projects');
+	}
 }
