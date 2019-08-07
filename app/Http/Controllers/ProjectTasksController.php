@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Task;
+use App\Project;
 use Illuminate\Http\Request;
 
 class ProjectTasksController extends Controller
@@ -33,9 +34,13 @@ class ProjectTasksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Project $project)
     {
-        //
+        $validated = $request->validate([
+            'description' => 'required|min:4'
+        ]);
+        $project->addTask($validated);
+        return back();
     }
 
     /**
